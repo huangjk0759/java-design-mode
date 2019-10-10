@@ -6,12 +6,14 @@ package com.hjk.singleton;
  * 饿汉式
  */
 public class Eager {
-    private static  Eager eager = new Eager();
+    private static final Eager INSTANCE = new Eager();
 
-    private Eager(){}
+    private Eager() {
+
+    }
 
     private static Eager getInstance() {
-        return eager;
+        return INSTANCE;
     }
 
 

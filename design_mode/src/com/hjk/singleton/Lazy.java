@@ -6,19 +6,23 @@ package com.hjk.singleton;
  * 懒汉
  */
 public class Lazy {
-    private static Lazy lazy = null;
+    private static Lazy instance;
 
     private Lazy() {
-
-    }
-
-    public static Lazy getInstance() {
-        if (lazy == null) {
-            lazy = new Lazy();
+        if (instance == null) {
+            instance = this;
+        } else {
+            throw new IllegalStateException("对象已经初始化!!");
         }
-        return lazy;
+
     }
 
+    public static synchronized Lazy getInstance() {
+        if (instance == null) {
+            instance = new Lazy();
+        }
+        return instance;
+    }
 
 
 }

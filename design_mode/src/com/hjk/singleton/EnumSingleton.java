@@ -6,6 +6,9 @@ package com.hjk.singleton;
  * 枚举
  */
 public enum  EnumSingleton {
+    /**
+     * 实例
+     */
     INSTANCE
 
 }
